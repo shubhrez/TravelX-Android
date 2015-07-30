@@ -29,6 +29,7 @@ public class SplashActivity extends Activity {
             public void onFinish() {
                 SplashActivity.this.startActivity(intent);
                 SplashActivity.this.finish();
+                SplashActivity.this.overridePendingTransition(R.anim.animation, R.anim.animation_out);
             }
         };
         countDownTimer.start();
