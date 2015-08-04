@@ -2,22 +2,21 @@ package com.travelx;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.StrictMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HeaderViewListAdapter;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.utils.Constant;
-import com.utils.adapter.HomeAdapter;
+import com.utils.adapter.CategoryAdapter;
 import com.utils.model.Category;
 
 import org.json.JSONArray;
@@ -26,37 +25,40 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class CategoryFragment extends Fragment {
 
     ProgressBar pb;
-    HomeAdapter myAdapter;
+    CategoryAdapter myAdapter;
     ArrayList<Category> category_list=new ArrayList<Category>();
+    GridView recList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
-        RecyclerView recList = (RecyclerView)rootView.findViewById(R.id.cardList);
+        recList = (GridView)rootView.findViewById(R.id.cardList);
         pb = (ProgressBar)rootView.findViewById(R.id.progressBar);
-        recList.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recList.setLayoutManager(llm);
+//        recList.setHasFixedSize(true);
+//        LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
+//        llm.setOrientation(LinearLayoutManager.VERTICAL);
+//        recList.setLayoutManager(llm);
 
-//        final GestureDetector mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
-//            @Override public boolean onSingleTapUp(MotionEvent e) {
+//        final GestureDetector mGestureDetector = new GestureDetector(getActivity().getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
+//            @Override
+//            public boolean onSingleTapUp(MotionEvent e) {
 //                return true;
 //            }
 //        });
 //
-//        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+//        recList.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 //            @Override
 //            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-//                View child = mRecyclerView.findChildViewUnder(e.getX(), e.getY());
-//                if (child != null && mGestureDetector.onTouchEvent(e)) {
-//                    mDrawerLayout.closeDrawers();
-//                    displayView(mRecyclerView.getChildPosition(child));
+//                View child = recList.findChildViewUnder(e.getX(), e.getY());
 //
+//                if (child != null && mGestureDetector.onTouchEvent(e)) {
+//                    Intent intent = new Intent(getActivity().getApplicationContext(),PlaceActivity.class);
+//                    startActivity(intent);
+//                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 //                    return true;
 //                }
 //                return false;
@@ -69,9 +71,19 @@ public class HomeFragment extends Fragment {
 //        });
 
 
-        myAdapter = new HomeAdapter(getActivity().getApplicationContext(),category_list);
+        myAdapter = new CategoryAdapter(getActivity().getApplicationContext(),category_list);
         recList.setAdapter(myAdapter);
         get_data();
+
+        recList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Common.category_selected = category_list.get(position);
+                Intent intent = new Intent(getActivity().getApplicationContext(),PlaceActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
         return rootView;
     }
 
@@ -120,7 +132,6 @@ public class HomeFragment extends Fragment {
     public void update_data(JSONObject json) throws JSONException{
 
         JSONArray data = json.getJSONArray("objects");
-
         for(int j=0; j <data.length();j++){
             JSONObject object = data.getJSONObject(j);
             int id = object.getInt("id");
@@ -130,6 +141,7 @@ public class HomeFragment extends Fragment {
             Category c = new Category(name,image,id);
             category_list.add(c);
         }
+        Common.category_list = category_list;
         printdata_on_screen();
 
     }
@@ -142,6 +154,6 @@ public class HomeFragment extends Fragment {
                 myAdapter.notifyDataSetChanged();
             }catch(Exception e1){}
         }
-        }
+    }
 
 }

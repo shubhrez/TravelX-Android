@@ -42,7 +42,7 @@ public class ContactFragment extends Fragment {
     public void send_mail(){
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"query@movincart.com"});
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"shubhamdrolia87@gmail.com"});
 //        i.putExtra(Intent.EXTRA_SUBJECT, Common.prefs.getString("MovinCart_customer_name","")+"["+Common.prefs.getString("MovinCart_customer_contact","")+"] Query");
         try {
             startActivity(Intent.createChooser(i, "Send mail..."));

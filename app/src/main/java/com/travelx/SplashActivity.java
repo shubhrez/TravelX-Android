@@ -21,6 +21,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.splash_layout);
 
         intent = new Intent(this,MainHomeActivity.class);
+//        intent = new Intent(this,PlaceDetails.class);
         countDownTimer = new CountDownTimer(1500, 500) {
             @Override
             public void onTick(long millisUntilFinished) {

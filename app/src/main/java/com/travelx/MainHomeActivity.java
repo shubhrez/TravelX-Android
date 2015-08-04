@@ -78,7 +78,7 @@ public class MainHomeActivity extends AppCompatActivity {
 
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-        Fragment fragment = new HomeFragment();
+        Fragment fragment = new CategoryFragment();
         getSupportActionBar().setTitle("Home");
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
@@ -102,11 +102,11 @@ public class MainHomeActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -134,7 +134,7 @@ public class MainHomeActivity extends AppCompatActivity {
         // Create a new fragment and specify the planet to show based on position
         Fragment fragment = null;
         if (position == 0) {
-            fragment = new HomeFragment();
+            fragment = new CategoryFragment();
             getSupportActionBar().setTitle("Home");
         }
         if (position == 1) {

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar">
+    </include>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -11,11 +15,11 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
 
-    <GridView
-        android:id="@+id/cardList"
+    <ListView
+        android:id="@+id/place_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2"
+        android:layout_below="@+id/tool_bar"
         />
 
 </RelativeLayout>

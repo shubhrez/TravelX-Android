@@ -20,8 +20,10 @@
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/icon"
         android:minHeight="?android:attr/listPreferredItemHeightSmall"
-        android:textSize="14sp"
-        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textColor="#AD1457"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:paddingRight="40dp"/>
 

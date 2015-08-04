@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -54,15 +55,17 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="7dp"
         android:textColor="#ffffff"
+        android:background="#880E4F"
         android:text="Email us"
         />
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
+        android:background="@drawable/splash"
         />
 
 </RelativeLayout>

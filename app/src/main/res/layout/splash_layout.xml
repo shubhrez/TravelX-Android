@@ -4,12 +4,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView android:text="TravelX"
+    <ImageView
+        android:id="@+id/splash_image"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:background="@drawable/splash"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/splash_image"
+        android:text="Explore The World"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:textColor="#000"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp"
         />
 
 </RelativeLayout>

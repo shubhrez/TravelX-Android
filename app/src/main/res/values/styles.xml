@@ -8,5 +8,18 @@
         <!-- Customize your theme here. -->
     </style>
 
-</resources>
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyCustomTabText</item>
+        <item name="tabSelectedTextColor">#880E4F</item>
+    </style>
+
+    <style name="MyCustomTabText" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:divider">@drawable/vertical_divider_tab</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+ </resources>
 
