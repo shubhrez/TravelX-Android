@@ -1,27 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:weightSum="2"
     >
 
-    <TextView
-        android:id="@+id/budget"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/first"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Budget"
-        android:textColor="#000000"
-        />
+        android:layout_weight="1"
+        >
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/card_view_budget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardCornerRadius="5dp"
+        android:layout_margin="5dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/budget_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Approximate Cost for visiting the place"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/budget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Budget"
+                android:textColor="#000000"
+                android:layout_below="@+id/budget_text"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:textSize="20dp"
+                />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/second"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Time"
-        android:textColor="#000000"
-        android:layout_below="@+id/budget"
-        />
+        android:layout_below="@+id/first"
+        android:layout_weight="1"
+        >
 
-</RelativeLayout>
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/card_view_duration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardCornerRadius="5dp"
+        android:layout_margin="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/time_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Approximate Time for visiting the place"
+                    android:textSize="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:textColor="#000000"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@+id/time_text"
+                    android:textSize="20dp"
+                    android:layout_marginTop="5dp"
+                    />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+</LinearLayout>

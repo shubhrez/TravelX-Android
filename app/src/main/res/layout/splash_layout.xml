@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/splash_image"
         android:layout_width="200dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:background="@drawable/splash"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"

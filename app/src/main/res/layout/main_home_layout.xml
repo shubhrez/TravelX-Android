@@ -3,7 +3,9 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="7dp">
+    android:elevation="7dp"
+    android:background="#FFFFFF"
+    >
 
     <!-- Framelayout to display Fragments -->
     <LinearLayout
@@ -19,7 +21,9 @@
         <FrameLayout
             android:id="@+id/frame_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            />
     </LinearLayout>
 
     <ListView android:id="@+id/left_drawer"

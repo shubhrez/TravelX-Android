@@ -4,14 +4,13 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    card_view:cardCornerRadius="4dp"
-    android:background="#424242"
+    card_view:cardCornerRadius="2dp"
+    android:background="#444444"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         >
 
         <ImageView

@@ -10,6 +10,20 @@
         layout="@layout/tool_bar">
     </include>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs_layout"
         android:layout_width="match_parent"
@@ -17,7 +31,7 @@
         app:tabMode="fixed"
         android:background="#fff"
         app:tabTextColor="#000"
-        app:tabIndicatorColor="#880E4F"
+        app:tabIndicatorColor="#3B2350"
         style="@style/MyCustomTabLayout"
         />
 
@@ -25,5 +39,7 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    </LinearLayout>
 
 </LinearLayout>
