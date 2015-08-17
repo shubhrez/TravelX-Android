@@ -1,5 +1,6 @@
 package com.travelx;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.TypedArray;
@@ -15,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.utils.PlayServiceUtils;
 import com.utils.adapter.NavAdapter;
 import com.utils.model.NavDrawerItem;
 
@@ -31,6 +34,7 @@ public class MainHomeActivity extends AppCompatActivity {
     private ListView mDrawerList;
     NavAdapter mAdapter;
     private int opened_fragment = 0;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,10 @@ public class MainHomeActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
+        activity = this;
+
+        PlayServiceUtils playServiceUtils = new PlayServiceUtils(this,activity);
+        playServiceUtils.register_app_id();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
