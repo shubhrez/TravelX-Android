@@ -63,6 +63,7 @@ public class MyGcmListenerService extends GcmListenerService {
 //     * @param message GCM message received.
      */
     private void sendNotification(String title,String msg) {
+        System.out.println("Message received");
         if(msg!=null){
             mNotificationManager = (NotificationManager)
                     this.getSystemService(Context.NOTIFICATION_SERVICE);

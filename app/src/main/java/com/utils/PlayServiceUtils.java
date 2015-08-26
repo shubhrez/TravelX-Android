@@ -147,7 +147,7 @@ public class PlayServiceUtils {
             HttpPost post = new HttpPost(url);
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("app_id", Common.regid));
-//            nameValuePairs.add(new BasicNameValuePair("email", Common.getPreferredEmail()));
+            nameValuePairs.add(new BasicNameValuePair("email", Common.getPreferredEmail()));
 //            nameValuePairs.add(new BasicNameValuePair("device_id", Common.get_device_id()));
             nameValuePairs.add(new BasicNameValuePair("version_code",Integer.toString(getAppVersion(context))));
             post.setEntity(new UrlEncodedFormEntity(nameValuePairs));

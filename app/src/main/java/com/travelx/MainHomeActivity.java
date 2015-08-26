@@ -86,15 +86,7 @@ public class MainHomeActivity extends AppCompatActivity {
 
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-        Fragment fragment = new CategoryFragment();
-        getSupportActionBar().setTitle("Home");
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_container, fragment)
-                .commit();
-
-
-
+        displayView(opened_fragment);
     }
 
     @Override
@@ -125,9 +117,6 @@ public class MainHomeActivity extends AppCompatActivity {
         public void onItemClick(AdapterView parent, View view, int position, long id) {
             selectItem(position);
             opened_fragment = position;
-            for (int i = 0; i < mDrawerList.getChildCount(); i++) {
-                mDrawerList.getChildAt(i).setBackgroundColor(Color.parseColor("#ffffff"));
-            }
             if (mDrawerList != null) {
                 if (mDrawerList.getChildCount() > opened_fragment) {
                     mDrawerList.getChildAt(opened_fragment).setBackgroundColor(Color.parseColor("#b6b6b6"));
@@ -143,7 +132,7 @@ public class MainHomeActivity extends AppCompatActivity {
         Fragment fragment = null;
         if (position == 0) {
             fragment = new CategoryFragment();
-            getSupportActionBar().setTitle("Home");
+            getSupportActionBar().setTitle(Common.location_show);
         }
         if (position == 1) {
             fragment = new ContactFragment();
@@ -162,6 +151,33 @@ public class MainHomeActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void displayView(int position) {
+        Fragment fragment = null;
+
+        switch (position) {
+            case 0:
+                opened_fragment = 0;
+                fragment = new CategoryFragment();
+                getSupportActionBar().setTitle(Common.location_show);
+                break;
+            case 1:
+                opened_fragment = 1;
+                fragment = new ContactFragment();
+                getSupportActionBar().setTitle("Contact Us");
+                break;
+            default:
+                break;
+        }
+        FragmentManager fragmentManager = getFragmentManager();
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragment)
+                .commit();
+
+        // Highlight the selected item, update the title, and close the drawer
+        mDrawerList.setItemChecked(position, true);
     }
 
 }

@@ -1,0 +1,159 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="com.movincart.LocationActivity" >
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/choose_location_method_layout"-->
+        <!-->-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:text="or"-->
+            <!--android:textColor="#888888"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/textView2"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="20dp"-->
+            <!--android:background="@drawable/button_shape"-->
+            <!--android:text="@string/location_b1"-->
+            <!--android:padding="15dp"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:paddingRight="20dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="#627c44"-->
+            <!--android:textSize="11sp"-->
+            <!--android:onClick="show_manual_location_layout" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_below="@+id/textView2"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:text="@string/location_b2"-->
+            <!--android:background="@drawable/button_shape"-->
+            <!--android:padding="15dp"-->
+            <!--android:textSize="11sp"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:paddingRight="20dp"-->
+            <!--android:textColor="#627c44"-->
+            <!--android:textStyle="bold"-->
+            <!--android:onClick="UseMyLocation_buttonClicked" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="60dp"-->
+            <!--android:textSize="14sp"-->
+            <!--android:text="@string/tag_line"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/button2"-->
+            <!--android:textColor="#888888"-->
+            <!--android:textSize="14dp"-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:text="TextView" />-->
+
+    <!--</RelativeLayout>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fetching_location_layout"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="#666666"
+            android:text="Fetching Your Current Location" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/no_internet_layout"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/no_internet" />
+
+        <TextView
+            android:id="@+id/no_internet_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="No Internet Connection"
+            android:textColor="#222222"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/no_internet_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_internet_text"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="Unable to fetch your location"
+            android:textColor="#666666"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/no_internet_tap_to_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_internet_text1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Tap Here to Retry"
+            android:textColor="#FF7A46"
+            android:textSize="14dp" />
+
+    </RelativeLayout>
+</RelativeLayout>
