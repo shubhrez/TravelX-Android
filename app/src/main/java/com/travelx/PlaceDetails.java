@@ -13,12 +13,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.utils.Constant;
 import com.utils.adapter.PlacePagerAdapter;
 import com.utils.model.Description;
@@ -57,7 +57,6 @@ public class PlaceDetails extends AppCompatActivity{
 //        getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setTitle(Common.place_selected.getName());
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-
 
         mAdapter = new PlacePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mAdapter);
