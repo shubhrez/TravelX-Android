@@ -10,31 +10,38 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         >
         <ImageView
             android:id="@+id/place_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"/>
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:elevation="5dp"/>
+
+        <TextView
+            android:id="@+id/place_short_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/gradient_up"
+            android:gravity="center"
+            android:layout_alignBottom="@+id/place_image"
+            />
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/gradient"
-            android:padding="5dp"
-            >
-
-        <LinearLayout
             android:id="@+id/details"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="vertical"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/tour"
+            android:layout_below="@+id/place_image"
+            android:layout_margin="5dp"
             >
 
             <TextView
@@ -42,52 +49,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ajanta Caves"
-                android:textSize="25dp"
-                android:textStyle="italic"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:paddingLeft="5dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_alignParentLeft="true"
                 />
 
-                <TextView
-                    android:id="@+id/place_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Location"
-                    android:textSize="15dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:paddingLeft="5dp"
-                    />
-
-                <TextView
-                    android:id="@+id/place_short_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Name"
-                    android:textSize="15dp"
-                    android:textColor="#FFFFFF"
-                    android:paddingLeft="5dp"
-                    android:paddingBottom="2dp"
-                    />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CHECKOUT"
-            android:background="@drawable/tour_border"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:layout_margin="5dp"
-            />
-
+            <TextView
+                android:id="@+id/place_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textSize="15dp"
+                android:layout_below="@+id/place_name"
+                android:textColor="#535353"
+                android:textStyle="bold"
+                android:layout_alignParentLeft="true"
+                />
+            <TextView
+                android:id="@+id/tour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHECKOUT"
+                android:background="@drawable/tour_border"
+                android:layout_alignParentRight="true"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:padding="5dp"
+                android:layout_alignBottom="@+id/place_location"
+                />
         </RelativeLayout>
     </RelativeLayout>
 

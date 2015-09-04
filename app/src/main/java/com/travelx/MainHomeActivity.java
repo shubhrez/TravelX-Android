@@ -68,9 +68,9 @@ public class MainHomeActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                if(opened_fragment == 0){
-                    mDrawerList.getChildAt(opened_fragment).setBackgroundColor(Color.parseColor("#b6b6b6"));
-                }
+//                if(opened_fragment == 0){
+//                    mDrawerList.getChildAt(opened_fragment).setBackgroundColor(Color.parseColor("#b6b6b6"));
+//                }
                 super.onDrawerOpened(drawerView);
                 invalidateOptionsMenu();
             }
@@ -117,12 +117,12 @@ public class MainHomeActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
             selectItem(position);
-            opened_fragment = position;
-            if (mDrawerList != null) {
-                if (mDrawerList.getChildCount() > opened_fragment) {
-                    mDrawerList.getChildAt(opened_fragment).setBackgroundColor(Color.parseColor("#b6b6b6"));
-                }
-        }
+//            opened_fragment = position;
+//            if (mDrawerList != null) {
+//                if (mDrawerList.getChildCount() > opened_fragment) {
+//                    mDrawerList.getChildAt(opened_fragment).setBackgroundColor(Color.parseColor("#b6b6b6"));
+//                }
+//        }
     }
 
     /**
@@ -130,24 +130,25 @@ public class MainHomeActivity extends AppCompatActivity {
      */
     public void selectItem(int position) {
         // Create a new fragment and specify the planet to show based on position
-        Fragment fragment = null;
-        if (position == 0) {
-            fragment = new CategoryFragment();
-            getSupportActionBar().setTitle(Common.location_show);
-        }
-        if (position == 1) {
-            fragment = new ContactFragment();
-            getSupportActionBar().setTitle("Contact Us");
-        }
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getFragmentManager();
-
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_container, fragment)
-                .commit();
-
-        // Highlight the selected item, update the title, and close the drawer
-        mDrawerList.setItemChecked(position, true);
+//        Fragment fragment = null;
+//        if (position == 0) {
+//            fragment = new CategoryFragment();
+//            getSupportActionBar().setTitle(Common.location_show);
+//        }
+//        if (position == 1) {
+//            fragment = new ContactFragment();
+//            getSupportActionBar().setTitle("Contact Us");
+//        }
+//        // Insert the fragment by replacing any existing fragment
+//        FragmentManager fragmentManager = getFragmentManager();
+//
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.frame_container, fragment)
+//                .commit();
+//
+//        // Highlight the selected item, update the title, and close the drawer
+//        mDrawerList.setItemChecked(position, true);
+        displayView(position);
         mDrawerLayout.closeDrawer(mDrawerList);
         }
 
@@ -156,15 +157,18 @@ public class MainHomeActivity extends AppCompatActivity {
 
     public void displayView(int position) {
         Fragment fragment = null;
-
+        System.out.println("Display called");
+        System.out.println("opened fragment " + opened_fragment);
         switch (position) {
             case 0:
                 opened_fragment = 0;
+                System.out.println("category returned");
                 fragment = new CategoryFragment();
                 getSupportActionBar().setTitle(Common.location_show);
                 break;
             case 1:
                 opened_fragment = 1;
+                System.out.println("constant returned");
                 fragment = new ContactFragment();
                 getSupportActionBar().setTitle("Contact Us");
                 break;
@@ -178,7 +182,19 @@ public class MainHomeActivity extends AppCompatActivity {
                 .commit();
 
         // Highlight the selected item, update the title, and close the drawer
-        mDrawerList.setItemChecked(position, true);
+//        mDrawerList.setItemChecked(position, true);
+        for(int i=0;i<mDrawerList.getChildCount();i++){
+            mDrawerList.getChildAt(i).setBackgroundColor(Color.parseColor("#ffffff"));
+        }
+
+        if(mDrawerList!=null){
+            System.out.println("set to zero");
+            System.out.println(mDrawerList.getChildCount());
+            if(mDrawerList.getChildCount()>opened_fragment){
+                System.out.println("done");
+                mDrawerList.getChildAt(opened_fragment).setBackgroundColor(Color.parseColor("#b6b6b6"));
+            }
+        }
     }
 
 }

@@ -7,7 +7,7 @@ public interface Constant {
 //	main server
 //	String SERVER_URL = "http://movincart.anurag92.webfactional.com";
 
-    String SERVER_URL = "http://192.168.1.4:8080";
-//      String SERVER_URL = "http://52.76.69.0:80";
+//    String SERVER_URL = "http://192.168.1.4:8080";
+      String SERVER_URL = "http://52.76.69.0:80";
 
 }

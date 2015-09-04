@@ -54,22 +54,6 @@ public class LocationActivity extends Activity implements GoogleApiClient.Connec
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
-
-        PlayServiceUtils playServiceUtils = new PlayServiceUtils(this,activity);
-        if(playServiceUtils.IsInternetActive()){
-            fetching_location.setVisibility(View.VISIBLE);
-            locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
-            // getting GPS status
-            isGPSEnabled = locationManager
-                    .isProviderEnabled(LocationManager.GPS_PROVIDER);
-            if(isGPSEnabled){
-                mGoogleApiClient.connect();
-            }else{
-                showSettingsAlert();
-            }
-        }else{
-            no_internet.setVisibility(View.VISIBLE);
-        }
     }
 
 
@@ -104,7 +88,7 @@ public class LocationActivity extends Activity implements GoogleApiClient.Connec
                         Common.location_lon=curr_longitude;
                     }
                 }
-                System.out.println(Common.location_show);
+//                System.out.println(Common.location_show);
                 this.startActivity(intent);
                 this.finish();
                 this.overridePendingTransition(R.anim.animation, R.anim.animation_out);
@@ -162,8 +146,25 @@ public class LocationActivity extends Activity implements GoogleApiClient.Connec
     @Override
     protected void onResume() {
         super.onResume();
-        System.out.println("On Resume called");
-        mGoogleApiClient.disconnect();
-        mGoogleApiClient.connect();
+        PlayServiceUtils playServiceUtils = new PlayServiceUtils(this,activity);
+        if(playServiceUtils.IsInternetActive()){
+            if(no_internet.getVisibility() == View.VISIBLE){
+                no_internet.setVisibility(View.GONE);
+            }
+            fetching_location.setVisibility(View.VISIBLE);
+            locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
+            // getting GPS status
+            isGPSEnabled = locationManager
+                    .isProviderEnabled(LocationManager.GPS_PROVIDER);
+            if(isGPSEnabled){
+                mGoogleApiClient.disconnect();
+                mGoogleApiClient.connect();
+            }else{
+                showSettingsAlert();
+            }
+        }else{
+            no_internet.setVisibility(View.VISIBLE);
+        }
+
     }
 }
